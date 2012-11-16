@@ -1,0 +1,890 @@
+Information about object: Shooter
+
+Sprite: sprite2
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Destroy Event:
+restart the current room with transition effect <no effect>
+
+Alarm Event for alarm 3:
+for all snipers: create instance of object object48 at relative position (0,0) with speed 5 in direction 180
+set Alarm 3 to 60
+
+Alarm Event for alarm 8:
+save the game in the file savegame
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+destroy the instance
+
+Collision Event with object Wall:
+start moving in directions 000010000 with speed set to 0
+
+Collision Event with object destroyable wall:
+start moving in directions 000010000 with speed set to 0
+
+Collision Event with object Sensor 3:
+for all snipers: create instance of object object48 at relative position (0,0) with speed 5 in direction 180
+set Alarm 3 to 60
+
+Keyboard Event for F5 Key:
+save the game in the file savegame
+
+Keyboard Event for F6 Key:
+load the game from the file savegame
+
+Other Event: Game Start:
+set Alarm 8 to 3
+
+Key Press Event for Keypad 2 Key:
+create instance of object mine at relative position (0,0)
+
+Key Press Event for Keypad 4 Key:
+start moving in directions 000100000 with speed set to 6
+
+Key Press Event for Keypad 5 Key:
+start moving in directions 010000000 with speed set to 6
+
+Key Press Event for Keypad 6 Key:
+start moving in directions 000001000 with speed set to 6
+
+Key Press Event for Keypad 7 Key:
+create instance of object bullet good at relative position (0,0) with speed 18 in direction 180
+
+Key Press Event for Keypad 8 Key:
+start moving in directions 000000010 with speed set to 6
+
+Key Press Event for Keypad 9 Key:
+create instance of object bullet good at relative position (0,0) with speed 18 in direction 0
+
+Key Release Event for Keypad 4 Key:
+start moving in directions 000010000 with speed set to 0
+
+Key Release Event for Keypad 5 Key:
+start moving in directions 000010000 with speed set to 0
+
+Key Release Event for Keypad 6 Key:
+start moving in directions 000010000 with speed set to 0
+
+Key Release Event for Keypad 8 Key:
+start moving in directions 000010010 with speed set to 0
+______________________________________________________
+
+Information about object: Soldiers
+
+Sprite: sprite6
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+destroy the instance
+
+Other Event: Room Start:
+set the relative path to path4 with speed 2 and at the end reverse
+
+Other Event: End Of Path:
+create instance of object bullet bad 4 soldiers at relative position (0,0) with speed 5 in direction 0
+______________________________________________________
+
+Information about object: bullet good
+
+Sprite: sprite1
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Bullet Bad (not used):
+destroy the instance
+for other object: destroy the instance
+______________________________________________________
+
+Information about object: Bullet Bad (not used)
+
+Sprite: sprite1
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+______________________________________________________
+
+Information about object: Wall
+
+Sprite: sprite3
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object Soldiers:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+______________________________________________________
+
+Information about object: mine
+
+Sprite: sprite0
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object bullet good:
+change the instance into object explode, not performing events
+for other object: destroy the instance
+
+Collision Event with object Rock:
+change the instance into object explode, not performing events
+______________________________________________________
+
+Information about object: destroyable wall
+
+Sprite: sprite16
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+
+Collision Event with object Bullet proofers:
+for other object: bounce not precisely against solid objects
+______________________________________________________
+
+Information about object: explode
+
+Sprite: sprite7
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: destroy the instance
+
+Collision Event with object Soldiers:
+for other object: destroy the instance
+
+Collision Event with object destroyable wall:
+for other object: destroy the instance
+
+Collision Event with object troopers:
+for other object: destroy the instance
+
+Collision Event with object Bullet proofers:
+for other object: destroy the instance
+
+Other Event: Animation End:
+destroy the instance
+______________________________________________________
+
+Information about object: SENSOR
+
+Sprite: sprite9
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: move to position (96,384)
+create instance of object Wall at position (64,384)
+______________________________________________________
+
+Information about object: object11
+
+Sprite: sprite3
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: start moving in directions 000010000 with speed set to 0
+______________________________________________________
+
+Information about object: troopers
+
+Sprite: sprite6
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Alarm Event for alarm 11:
+for all troopers: create instance of object Trooper's bullet at relative position (0,0) with speed 5 in direction 180
+set Alarm 11 to 70
+
+Collision Event with object Shooter:
+for other object: destroy the instance
+
+Collision Event with object bullet good:
+destroy the instance
+for other object: destroy the instance
+
+Collision Event with object Wall:
+start moving in directions 000010000 with speed set to 0
+
+Collision Event with object destroyable wall:
+start moving in directions 000010000 with speed set to 0
+
+Other Event: Room Start:
+set Alarm 11 to 60
+______________________________________________________
+
+Information about object: create wall
+
+Sprite: sprite3
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+______________________________________________________
+
+Information about object: sensor 2
+
+Sprite: sprite9
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for all troopers: set the relative path to path2 with speed 2 and at the end continue from here
+create instance of object object25 at position (96,288)
+for all troopers: create instance of object Bullet Bad (not used) at position (0,0) with speed 3 in direction 140
+destroy the instance
+______________________________________________________
+
+Information about object: object25
+
+Sprite: sprite3
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object Soldiers:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+______________________________________________________
+
+Information about object: Wall2
+
+Sprite: sprite3
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object Soldiers:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+______________________________________________________
+
+Information about object: object27
+
+Sprite: sprite3
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+start moving in directions 000010000 with speed set to 0
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+______________________________________________________
+
+Information about object: object28
+
+Sprite: sprite8
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for all troopers: set the relative path to path2 with speed 2 and at the end continue from here
+create instance of object object25 at position (96,288)
+______________________________________________________
+
+Information about object: object29
+
+Sprite: sprite9
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+create instance of object object27 at position (432,128)
+create instance of object object40 at position (384,432)
+for all object29: destroy the instance
+______________________________________________________
+
+Information about object: snipers
+
+Sprite: sprite6
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: destroy the instance
+
+Collision Event with object bullet good:
+destroy the instance
+for other object: destroy the instance
+______________________________________________________
+
+Information about object: Bullet proofers
+
+Sprite: sprite11
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: destroy the instance
+start moving in directions 000010000 with speed set to 0
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Wall:
+bounce not precisely against solid objects
+______________________________________________________
+
+Information about object: experiment
+
+Sprite: sprite5
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for all experiment: destroy the instance
+create instance of object Wall at position (352,416)
+for all Bullet proofers: start moving in directions 000100000 with speed set to 3
+______________________________________________________
+
+Information about object: object34
+
+Sprite: sprite5
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for all object34: destroy the instance
+______________________________________________________
+
+Information about object: bulletproofer2
+
+Sprite: sprite11
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: destroy the instance
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+
+Collision Event with object Wall:
+reverse vertical direction
+
+Collision Event with object explode:
+destroy the instance
+
+Collision Event with object bullet bad 4 soldiers:
+for other object: destroy the instance
+
+Other Event: Room Start:
+start moving in directions 000000010 with speed set to 7
+______________________________________________________
+
+Information about object: 3rd
+
+Sprite: sprite5
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+______________________________________________________
+
+Information about object: restart
+
+Sprite: sprite12
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Mouse Event for Left Button:
+restart the current room with transition effect <no effect>
+______________________________________________________
+
+Information about object: bullet bad 4 soldiers
+
+Sprite: sprite1
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+destroy the instance
+for other object: destroy the instance
+
+Collision Event with object Wall:
+destroy the instance
+______________________________________________________
+
+Information about object: object40
+
+Sprite: sprite13
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for all object27: destroy the instance
+destroy the instance
+______________________________________________________
+
+Information about object: object42
+
+Sprite: sprite9
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+create instance of object Dog at position (656,96)
+destroy the instance
+______________________________________________________
+
+Information about object: Dog
+
+Sprite: sprite17
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Create Event:
+start moving in directions 000100000 with speed set to 4
+
+Collision Event with object Shooter:
+for other object: destroy the instance
+start moving in directions 000010000 with speed set to 0
+for all Dog: destroy the instance
+
+Collision Event with object bullet good:
+destroy the instance
+
+Collision Event with object Wall:
+bounce not precisely against solid objects
+______________________________________________________
+
+Information about object: rock sense
+
+Sprite: sprite18
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for all Rock: start moving in directions 000000010 with speed set to 3
+destroy the instance
+______________________________________________________
+
+Information about object: Rock
+
+Sprite: sprite4
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: destroy the instance
+for other object: destroy the instance
+
+Collision Event with object Wall:
+bounce not precisely against solid objects
+
+Collision Event with object mine:
+destroy the instance
+______________________________________________________
+
+Information about object: button 2
+
+Sprite: sprite19
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for all Wall Button 2: destroy the instance
+create instance of object destroyable wall at position (880,416)
+destroy the instance
+______________________________________________________
+
+Information about object: object47
+
+Sprite: sprite3
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object Soldiers:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+______________________________________________________
+
+Information about object: object48
+
+Sprite: sprite1
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: destroy the instance
+
+Collision Event with object bullet good:
+destroy the instance
+for other object: destroy the instance
+
+Collision Event with object Wall:
+destroy the instance
+
+Collision Event with object destroyable wall:
+destroy the instance
+
+Collision Event with object object47:
+destroy the instance
+______________________________________________________
+
+Information about object: Wall Button 2
+
+Sprite: sprite3
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+start moving in directions 000010000 with speed set to 0
+
+Collision Event with object Soldiers:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+______________________________________________________
+
+Information about object: end
+
+Sprite: sprite20
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+if next room exists
+      go to next room with transition effect <no effect>
+else
+      display message: You Win the whole game!
+      end the game
+______________________________________________________
+
+Information about object: Sensor 3
+
+Sprite: sprite9
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+destroy the instance
+______________________________________________________
+
+Information about object: Sensor 4
+
+Sprite: sprite9
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+create instance of object Wall at position (128,224)
+destroy the instance
+for all wall by flag: destroy the instance
+create instance of object destroyable wall at position (192,288)
+for all wall by bullet proofers: destroy the instance
+______________________________________________________
+
+Information about object: Sensor 5
+
+Sprite: sprite9
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+______________________________________________________
+
+Information about object: Trooper's bullet
+
+Sprite: sprite1
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: destroy the instance
+destroy the instance
+
+Collision Event with object bullet good:
+destroy the instance
+for other object: destroy the instance
+
+Collision Event with object Wall:
+destroy the instance
+
+Collision Event with object destroyable wall:
+destroy the instance
+______________________________________________________
+
+Information about object: wall by flag
+
+Sprite: sprite3
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object Soldiers:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+______________________________________________________
+
+Information about object: wall by bullet proofers
+
+Sprite: sprite3
+Solid: true
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Collision Event with object Shooter:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object Soldiers:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object bullet good:
+for other object: destroy the instance
+
+Collision Event with object Bullet Bad (not used):
+for other object: destroy the instance
+
+Collision Event with object troopers:
+for other object: start moving in directions 000010000 with speed set to 0
+
+Collision Event with object Bullet proofers:
+for other object: bounce not precisely against solid objects
+______________________________________________________
+
+Information about object: F1 Game Info
+
+Sprite: F1 game info
+Solid: false
+Visible: true
+Depth: 0
+Persistent: false
+Parent: <no parent>
+Mask: <same as sprite>
+
+Alarm Event for alarm 7:
+destroy the instance
+
+Other Event: Game Start:
+set Alarm 7 to 150
+
+Key Press Event for F1 Key:
+destroy the instance
+
+Key Press Event for F6 Key:
+destroy the instance
+______________________________________________________
+

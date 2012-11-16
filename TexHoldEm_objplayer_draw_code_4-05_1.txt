@@ -1,0 +1,229 @@
+{
+    xx=window_get_x()
+    yy=window_get_y()
+    if (global.winner == 0)
+        {
+         if (in)
+             {
+              if (global.inplay[number])
+                   {
+                   if (make_choice && !global.show_down && !global.all_folded)
+                       {
+                       sound_play(snd_alert)
+                       a = get_next(number);
+                       if (global.river)
+                           {
+                           alar = 3;
+                           }
+                       else if (global.turn)
+                           {
+                           alar = 2;
+                           }
+                       else if (global.flop)
+                           {
+                           alar = 1;
+                           }
+                       else
+                           {
+                           alar = 0;
+                           }
+                       if (bet < global.max_bet)
+                           {
+                           font_align = fa_center;
+                           font_size = 10;
+                           font_color = c_black;
+                           if (global.max_bet > bet+chip_count-global.min_bet)
+                               {
+                               c = "F C";
+                               }
+                           else
+                               {
+                               c = "F C R";
+                               }
+                           }
+                   /*draw_text(room_width/2,room_height/2+global.card_height/2+50-string_height("C"),c);
+//                 if (keyboard_check(ord("F")))*/
+                   repeating=true
+                   do
+                      {
+                      show_message("again")
+                      if c="F C"  then  menu_show="Fold|Call to "+string(global.call_needed)
+                      if c="F C R" then menu_show="Fold|Call to "+string(global.call_needed)+"|Raise"
+                      menu_action=show_menu_pos(xx+350,yy+350,menu_show,3)
+                   
+                      //if c="F C"  then  menu_action=show_menu_pos(room_width/2,room_height/2,"Fold|Call",1)
+                      //if c="F C R" menu_action=show_menu_pos(room_width/2,room_height/2,"Fold|Call|Raise",1)
+                      //window_mouse_set(xx,yy)
+                      if menu_action==0 then
+                          {
+                          fold();
+                          if (!global.all_folded)
+                            {
+                            global.player[a].alarm[alar+2] = global.wait;
+                            } 
+                          make_choice = false;
+                          repeating=false
+                          }
+                      //else if (keyboard_check(ord("C")))
+                      if menu_action=1 then
+                          {
+                          call();
+                          global.player[a].alarm[alar+2] = global.wait;
+                          make_choice = false;
+                          repeating=false
+                          }
+                      //else if (keyboard_check(ord("R")) && c == "Fold(F), Call(C) or Raise(R)")
+                      if menu_action=2
+                          {
+                          if c="F C R"
+                             {
+                              raise();
+                              global.player[a].alarm[alar+2] = global.wait;
+                              make_choice = false;
+                              repeating=false
+                              }
+                          }
+                      if menu_action=3 //default
+                          {
+                          repeating=true
+                          }
+                      }
+                  until repeating=false
+                  }
+              else
+                 {
+                 if (global.blinding || global.bet_player != number)
+                     {
+                     font_align = fa_center;
+                     font_size = 12;
+                     font_color = c_black;
+                     if (global.max_bet > bet+chip_count-global.min_bet)
+                         {
+                         c = "C";
+                         }
+                     else
+                         {
+                         c = "C R";
+                         }
+                     /*draw_text(room_width/2,room_height/2+global.card_height/2+50-string_height("C"),c);
+//                   if (keyboard_check(ord("C")))*/
+//                   window_get_x+room_width/2,window_get_y+room_height/2,menu_show,1
+                  repeating=true
+      /**/        do
+                      {
+                      show_message("again")
+                      if c=="C"  then  menu_action=show_menu_pos(xx+350,yy+350,"Check",2)
+                      if c=="C R" then menu_action=show_menu_pos(xx+350,yy+350,"Check|Raise",2)
+                      
+     /*/              if menu_action=0
+                          {
+                          check();
+                          if (global.blinding)
+                              {
+                              if (global.flop)
+                                  {
+                                  global.checked += 1;
+                                  if (global.checked == global.playing-global.all_inning_number)
+                                      {
+                                      obj_controller.alarm[alar] = global.wait; obj_controller.alarm[7] = ceil(global.wait/2);
+                                      }
+                                  else
+                                      {
+                                      global.player[a].alarm[alar+2] = global.wait;
+                                     }
+                                  }
+                              else
+                                  {
+                                  obj_controller.alarm[alar] = global.wait; obj_controller.alarm[7] = ceil(global.wait/2);
+                                  }
+                              }
+                          make_choice = false;
+                          repeating=false
+                          }
+                      //else if (keyboard_check(ord("R")) && c == "Check(C) or Raise(R)")
+                      
+     /*/              else if menu_action=1
+                          {
+                          if c="C R" then
+                                  {
+                                  raise();
+                                  global.player[a].alarm[alar+2] = global.wait;
+                                  make_choice = false;
+                                  repeating=false
+                                  }
+                          }
+                      
+    /*/               else if menu_action=2
+                          {
+                          repeating=true
+                          }
+                      }
+     /**/          until repeating=false
+                   }
+              else
+                  {
+                  obj_controller.alarm[alar] = global.wait; obj_controller.alarm[7] = ceil(global.wait/2);
+                  make_choice = false;
+                  }
+              }
+          }
+      width = hole_number*(global.card_width+gap);
+      height = global.card_height;
+      for (i = 1; i <= hole_number; i += 1)
+          {
+          xpos = x-width/2+(width/(hole_number+1))*i;
+          ypos = y;
+          if (person || global.finished || global.show_down)
+              {
+                draw_card_up(xpos,ypos,card[i,0],card[i,1]);
+              }
+          else
+              {
+              draw_card_down();
+              }
+          }
+      font_align = fa_center;
+      font_style = fs_bold;
+      font_size = 11;
+      if (global.finished)
+          {
+              for (i = 1; i <= global.winning; i += 1)
+              {
+              if (global.wp[i] == number)
+                  {
+                  font_color = c_red;
+                  break;
+                  }
+              else
+                  { 
+                  font_color = c_black;
+                  }
+              }
+          }
+      else
+          {
+          font_color = c_black;
+          draw_text(x,y-global.card_height/2-3-string_height(string(bet)),"£"+string(bet));
+          }
+      if (all_in)
+          {
+          font_color = c_white;
+          }
+      else
+          {
+          font_color = c_black;
+          //}                                                                                                                ?
+          draw_text(x,y+global.card_height/2+3,string(name)+"  £"+string(chip_count));
+          }
+        }
+    if (global.dealer == number)
+        {
+        draw_sprite(spr_dealer,0,x-global.card_width*1.15,y)
+        }
+
+    if (person)
+        {
+        global.call_needed = global.max_bet-bet;
+        }
+    }
+}

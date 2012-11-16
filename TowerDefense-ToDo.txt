@@ -1,0 +1,11 @@
+HIGH
+individual monster health
+kill faster
+fix the wave maker, after 1 it does not work
+make the play button work correctly.
+
+MEDIUM
+visualize shooting
+
+LOW
+make new maps

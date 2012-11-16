@@ -1,0 +1,27 @@
+Jeopardy - Computer Hardware
+3
+3
+Hardware 1
+Hardware 2
+Hardware 3
+100
+200
+500
+The memory stored for all running applications, that can use DDR (Dual Data Rate).
+What is RAM?
+The part of a computer that reads a disk that can store ~700 MB.
+What is a Compact Disc (CD) Drive?
+A part of a computer that spins to cool down heat-prone parts.
+What is a fan?
+The acronym is USB.
+What is Universal Serial Bus?
+The acronym is BIOS.
+What is the acronym for Basic Input/Output System?
+It converts 110 AC to DC and provides electricity to all components.
+What is a power supply?
+It renders graphics, including 3D.
+What is a Video/Graphics Card?
+It is that part that controls the system time/date and plugs into all elements.
+What is a motherboard?
+It is the brain of the computer. It gets, decodes and sends information.
+What is a Processor/CPU/Central Processing Unit?

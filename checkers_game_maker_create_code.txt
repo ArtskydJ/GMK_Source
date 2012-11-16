@@ -1,0 +1,22 @@
+board[x,y] or num=0,1,2,3,4,5,6,7,8
+
+Psuedo Code: switch(board[x,y] or num)
+{case 0:{No checker occupying square}
+case 1:{White checker occupying square}
+case 2:{Red checker occupying square}
+case 3:{White king occupying square}
+case 4:{Red king occupying square}
+case 5:{selected White checker occupying square}
+case 6:{selected Red checker occupying square}
+case 7:{selected White king occupying square}
+case 8:{selected Red king occupying square}}
+
+
+
+action=1,2,3,4
+
+Psuedo code: switch(action)
+{case 1:{red's turn}
+case 2: {white's turn}
+case 3: {red checker selected}
+case 4: {white checker selected}}
